@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Test an HTTP site, return any error or http error
 curl_test() {
@@ -22,8 +22,8 @@ curl_test() {
 }
 
 # Test Registry service running on 5000. If it returns 200 o Unauthorized (401) both valid
-PORT=80
-curl_test "Test nginx http" "Error testing supervisord :${PORT}" "http://${HOSTNAME}:${PORT}/v2/" || { ret=${?}; exit ${ret}; }
+PORT=5000
+curl_test "Test Registry Server" "Error testing Registry Server :${PORT}" "http://${HOSTNAME}:${PORT}/v2/" || { ret=${?}; exit ${ret}; }
 echo " Ok."
 
 # All passed
